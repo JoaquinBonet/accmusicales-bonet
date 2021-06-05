@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import { CartWidget } from './CartWidget.js'
 
 
 
@@ -25,10 +26,14 @@ export const NavBar = () => {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Otros</NavDropdown.Item>
                     </NavDropdown>
+
                 </Nav>
                 <Form inline>
+                    
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-info">Search</Button>
+                    <Button variant="dark">Search</Button>
+                    <CartWidget></CartWidget>
+                    
                 </Form>
 
             </Navbar.Collapse>
