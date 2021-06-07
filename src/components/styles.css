@@ -16,3 +16,10 @@
 
 
 }
+
+.greeting{
+    display: flex;
+    font-size: xx-large;
+    justify-content: center;
+    font-family: cursive;
+}
