@@ -13,7 +13,6 @@ export const ItemCount = (props) => {
             <div className="count"><b>{count}</b></div>
             <Button variant="outline-dark" className="btnCount" onClick={() => setCount(count + 1)} disabled={count === props.stock ? "true" : ""}>+</Button>
         </ButtonGroup>
-        <Button variant="outline-success" className="btnAdd">Agregá al carrito</Button>
     </div>
 }
 

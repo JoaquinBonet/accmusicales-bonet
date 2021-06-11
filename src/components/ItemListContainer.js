@@ -1,7 +1,8 @@
 import React from 'react';
-import { ItemCount } from './ItemCount';
+
 import './styles.css'
+import { ItemList } from './ItemList';
 
 export const ItemListContainer = (props) => {
-    return <div className="container" ><p className="greeting">{props.greeting}</p><ItemCount initial={1} stock={5} ></ItemCount></div>
+    return <div className="container" ><ItemList></ItemList></div>
 }

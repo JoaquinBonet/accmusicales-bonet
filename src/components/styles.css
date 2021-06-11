@@ -2,7 +2,14 @@
     border-radius: 100%;
 
 }
+.card{  
+    max-width: 15rem;
+    max-height: 25rem;
+    align-items: center;
+   
+    
 
+}
 .itemCount{
     display:flex;
     align-items:center;
@@ -17,9 +24,17 @@
 
 }
 
-.greeting{
-    display: flex;
-    font-size: xx-large;
+.cardDeck{ 
+    padding: 1em;
+    margin: auto;
+    display:flex;
+    flex-flow: row wrap;
     justify-content: center;
-    font-family: cursive;
+    align-items: center;
+
+}
+
+
+img {
+    max-height: 11em;
 }
