@@ -14,7 +14,7 @@ export const Item = ({pedal, precio, img, stock, initial}) => {
                 {precio}
             </Card.Text>
             <ItemCount initial={initial} stock={stock}></ItemCount>
-            <Button variant="dark">Añadir al carrito</Button>
+            <Button variant="dark" class="addCarrito">Añadir al carrito</Button>
         </Card.Body>
     </Card>
 }

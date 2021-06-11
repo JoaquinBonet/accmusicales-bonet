@@ -10,7 +10,7 @@ import { ItemListContainer } from './components/ItemListContainer';
 function App() {
   return <>
     <NavBar  />
-    <ItemListContainer greeting="PROXIMAMENTE..."></ItemListContainer>
+    <ItemListContainer ></ItemListContainer>
   </>
 }
 

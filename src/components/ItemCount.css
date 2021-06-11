@@ -1,0 +1,17 @@
+.itemCount{
+    display:flex;
+    align-items:center;
+    flex-flow: column wrap;
+    margin: 1em;
+    justify-content: center;
+}
+
+.count{
+
+    padding: 0.5em;
+}
+
+.btnCount{
+    border-radius: 50% !important
+
+}
