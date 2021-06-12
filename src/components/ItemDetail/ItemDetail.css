@@ -1,0 +1,33 @@
+.title {
+    text-align: center;
+    font-size: 5em;
+    text-shadow: 100% 100% blur(black);
+    font-family: 'Mate SC', serif;
+}
+
+.price {
+    text-align: center;
+    font-size: 2.5em;
+    font-style: italic;
+}
+
+.img {
+    max-width: max-content !important;
+    max-height: max-content !important;
+    transition: transform .2s;
+}
+
+.img:hover {
+    transform: scale(1.05); 
+}
+
+.text{
+    font-size: 110%;
+    font-family: 'Martel Sans', sans-serif;
+
+
+}
+
+.colText{
+    border-left: thin solid #222
+}

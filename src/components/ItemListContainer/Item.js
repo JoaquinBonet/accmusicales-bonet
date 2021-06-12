@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/Button';
-import { ItemCount } from './ItemCount';
+import { ItemCount } from '../ItemCount/ItemCount';
 
 
 
