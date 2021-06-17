@@ -1,0 +1,23 @@
+.itemCount{
+    display: inline-block;
+    align-items:center;
+    flex-flow: column wrap;
+    margin: 0.5em;
+    justify-content: center;
+    
+
+}
+
+.btn-group .btnCount .count{
+    max-height: .5px !important
+
+}
+
+.count{
+    padding: 0.5em;
+}
+
+.btnCount{
+    border-radius: 50% !important;
+
+}
