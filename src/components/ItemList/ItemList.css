@@ -1,0 +1,8 @@
+.cardDeck{ 
+    padding: 1em;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1em;
+   
+}

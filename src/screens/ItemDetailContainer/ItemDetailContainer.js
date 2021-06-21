@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
-import { ItemDetail } from './ItemDetail/ItemDetail';
+import { ItemDetail } from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 import { itemsPromise } from '../ItemListContainer/ItemListContainer'
 import { useParams } from 'react-router-dom'

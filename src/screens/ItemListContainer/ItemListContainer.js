@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css'
-import { ItemList } from './components/ItemList';
+import { ItemList } from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom'
 
 export const items = [{

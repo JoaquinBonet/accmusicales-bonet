@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import './ItemDetail.css';
-import { ItemCount } from '../../ItemListContainer/components/ItemCount/ItemCount';
+import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 
