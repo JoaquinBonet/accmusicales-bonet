@@ -1,18 +1,15 @@
 .card{  
-    display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 15rem;
     max-height: 25rem;
-    justify-content: center;
     transition: 0.3s;
-    align-items: center;
     width: 100%;
     
 }
 
 
-.btn {
-    margin: auto;
+.detail {
+    margin-bottom: 20%;
 }
 
 .card:hover {
@@ -28,5 +25,12 @@
     height: 12em;
     width: 14em;
 
+}
+
+.card-body{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 
