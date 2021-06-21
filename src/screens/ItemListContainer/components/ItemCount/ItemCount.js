@@ -4,15 +4,27 @@ import Button from 'react-bootstrap/Button';
 import './ItemCount.css'
 
 
-export const ItemCount = (props) => {
-    const [count, setCount] = React.useState(props.initial);
+export const ItemCount = ({stock, handleClick, className}) => {
+    const [count, setCount] = React.useState(0);
 
-    return <div className="itemCount">
-        <ButtonGroup aria-label="ItemCount" >
-            <Button variant="outline-dark" className="btnCount" onClick={() => setCount(count - 1)} disabled={count < 1 ? "true" : ""}>-</Button>
+    const onAdd = (e) => { 
+        setCount(count + 1)
+    }
+
+    const onSubstract = (e) => {
+        setCount(count - 1)
+    }
+
+    return <div className={className } >
+        <ButtonGroup aria-label="ItemCount" className="itemCount" >
+            <Button variant="outline-dark" className="btnCount" onClick={onSubstract} disabled={count === 0}>-</Button>
             <span className="count"><b>{count}</b></span>
-            <Button variant="outline-dark" className="btnCount" onClick={() => setCount(count + 1)} disabled={count === props.stock ? "true" : ""}>+</Button>
+            <Button variant="outline-dark" className="btnCount" onClick={onAdd} disabled={count === stock}>+</Button>
+            <Button variant="dark" onClick={handleClick} className="addToCart" disabled={count === 0}>Agregar al Carrito</Button>
         </ButtonGroup>
+        
+       
+         
     </div>
 }
 

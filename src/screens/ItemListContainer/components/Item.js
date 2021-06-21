@@ -1,15 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/Button';
-import { ItemCount } from './ItemCount/ItemCount';
+//import { ItemCount } from './ItemCount/ItemCount';
 import '../styles.css';
 import { Link } from 'react-router-dom'
 
 
 
-export const Item = ({ titulo, precio, img, stock, initial, id}) => {
+export const Item = ({ titulo, precio, img, stock, initial, id }) => {
 
-    return <Card >
+    return <Card>
         <Link to={`/item/${id}`}>
             <Card.Img variant="top" src={img} />
         </Link>
@@ -18,8 +18,9 @@ export const Item = ({ titulo, precio, img, stock, initial, id}) => {
             <Card.Text>
                 {precio}
             </Card.Text>
-            {/*<ItemCount initial={initial} stock={stock}></ItemCount>*/}
-            <Button variant="dark" class="addCarrito">Añadir al carrito</Button>
+            <Link to={`/item/${id}`}>
+                <Button variant="dark" >Ver detalle</Button>
+            </Link>
         </Card.Body>
     </Card>
 }
