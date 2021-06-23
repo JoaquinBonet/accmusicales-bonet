@@ -75,6 +75,10 @@ body {
 .notfound a:hover {
   opacity: 0.8;
 }
+.home{
+  margin-top:3%;
+
+}
 
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 {

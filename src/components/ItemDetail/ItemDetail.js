@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import './ItemDetail.css';
 import { ItemCount } from '../ItemCount/ItemCount';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 
@@ -14,6 +14,11 @@ export const ItemDetail = (props) => {
         2: ''
     });
 
+    const history =  useHistory();
+
+    const routeClick = (path) => {
+        history.push(path);
+    }
 
     const handleClick = (e) => {
         setDisplay({
@@ -31,16 +36,16 @@ export const ItemDetail = (props) => {
             <Col sm={3} className="buy" >
                 <ItemCount stock={props.stock} handleClick={handleClick} className={display[2]}></ItemCount>
 
-                <Link to='/cart/'>
-                    <Button variant="dark" className={`end ${display[1]}`}>Terminar compra!</Button>
-                </Link></Col>
+
+                <Button variant="dark" className={`end ${display[1]}`} onClick={() => routeClick("/cart/")}>Terminar compra!</Button>
+            </Col>
 
         </Row>
         <Row>
             <Col sm ><img className="img" src={props.img} alt={props.pedal} /></Col>
             <Col sm className="colText"> <p className="text"> {props.descripcion}</p></Col>
         </Row>
-    
+
 
 
 
