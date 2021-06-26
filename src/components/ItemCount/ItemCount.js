@@ -20,7 +20,7 @@ export const ItemCount = ({stock, handleClick, className}) => {
             <Button variant="outline-dark" className="btnCount" onClick={onSubstract} disabled={count === 0}>-</Button>
             <span className="count"><b>{count}</b></span>
             <Button variant="outline-dark" className="btnCount" onClick={onAdd} disabled={count === stock}>+</Button>
-            <Button variant="dark" onClick={handleClick} className="addToCart" disabled={count === 0}>Agregar al Carrito</Button>
+            <Button variant="dark" onClick={() => handleClick({count})} className="addToCart" disabled={count === 0}>Agregar al Carrito</Button>
         </ButtonGroup>
         
        

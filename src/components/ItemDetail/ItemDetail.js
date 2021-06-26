@@ -4,27 +4,36 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import './ItemDetail.css';
 import { ItemCount } from '../ItemCount/ItemCount';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext'
 
 
 
 export const ItemDetail = (props) => {
-    const [display, setDisplay] = React.useState({
-        1: 'oculto',
-        2: ''
-    });
+    const [display, setDisplay] = React.useState({ 1: 'oculto', 2: '' });
+    const { addItem } = useCartContext();
+    const [quantity, setQuantity] = React.useState('');
 
-    const history =  useHistory();
+    const history = useHistory();
 
     const routeClick = (path) => {
         history.push(path);
     }
 
-    const handleClick = (e) => {
-        setDisplay({
-            1: '',
-            2: 'oculto'
-        });
+
+    const handleClickCount = ({ count }) => {
+        setDisplay({ 1: '', 2: 'oculto' });
+        setQuantity(count);
+        
+
+    }
+   
+
+    const handleClickEnd = (props) => {
+        addItem({item:props, quantity: quantity});
+        routeClick("/cart/");
+        
+
     }
 
     return <>
@@ -34,10 +43,15 @@ export const ItemDetail = (props) => {
         <Row>
             <Col sm={9} ><h3 className="price">{props.precio}</h3></Col>
             <Col sm={3} className="buy" >
-                <ItemCount stock={props.stock} handleClick={handleClick} className={display[2]}></ItemCount>
-
-
-                <Button variant="dark" className={`end ${display[1]}`} onClick={() => routeClick("/cart/")}>Terminar compra!</Button>
+                <ItemCount stock={props.stock} handleClick={handleClickCount} className={display[2]}></ItemCount>
+                <Button variant="dark" className={`end ${display[1]}`} onClick={ e => handleClickEnd(props)}>
+                    Terminar compra!
+                </Button>
+                <Button variant="light" className={`end ${display[1]}`} onClick={() => {
+                    setDisplay({ 1: 'oculto', 2: '' });
+                }}>
+                    Cancelar
+                </Button>
             </Col>
 
         </Row>
