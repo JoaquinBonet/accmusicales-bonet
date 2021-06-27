@@ -32,19 +32,12 @@ export const CartComponentContext = props => {
 
 
 
-
-
-    const removeItem = (id) => {
-        return cart.filter(item => { return item.id !== id });
-
-    }
-
     const clear = () => {
         setCart([]);
     }
 
-    console.log(cart)
-    return <CartContext.Provider value={{ cart, addItem, removeItem, clear }}>
+
+    return <CartContext.Provider value={{ cart, setCart, addItem, clear }}>
         {props.children}
     </CartContext.Provider>
 }

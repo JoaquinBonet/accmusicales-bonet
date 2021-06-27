@@ -4,8 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import './ItemDetail.css';
 import { ItemCount } from '../ItemCount/ItemCount';
-import { useHistory } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext'
+import { useCartContext } from '../../context/CartContext';
+import { ModalMessage} from './ModalMessage';
+
 
 
 
@@ -13,40 +14,41 @@ export const ItemDetail = (props) => {
     const [display, setDisplay] = React.useState({ 1: 'oculto', 2: '' });
     const { addItem } = useCartContext();
     const [quantity, setQuantity] = React.useState('');
+    const [show, setShow] = React.useState(false);
 
-    const history = useHistory();
-
-    const routeClick = (path) => {
-        history.push(path);
-    }
-
+  
+    const handleShow = () => setShow(true);
 
     const handleClickCount = ({ count }) => {
         setDisplay({ 1: '', 2: 'oculto' });
         setQuantity(count);
-        
-
     }
-   
 
-    const handleClickEnd = (props) => {
-        addItem({item:props, quantity: quantity});
-        routeClick("/cart/");
-        
+
+    const handleClickConfirm = (props) => {
+        addItem({ item: props, quantity: quantity });
+        handleShow();
 
     }
 
     return <>
+
+
+
+
+        <ModalMessage show={show} setShow={setShow}/>
         <Row>
             <Col sm={12} ><h1 className="title">{props.titulo}</h1></Col>
         </Row>
         <Row>
             <Col sm={9} ><h3 className="price">{props.precio}</h3></Col>
             <Col sm={3} className="buy" >
-                <ItemCount stock={props.stock} handleClick={handleClickCount} className={display[2]}></ItemCount>
-                <Button variant="dark" className={`end ${display[1]}`} onClick={ e => handleClickEnd(props)}>
-                    Terminar compra!
+                <ItemCount stock={props.stock} id={props.id} handleClick={handleClickCount} className={display[2]} />
+                <Button variant="dark" className={`end ${display[1]}`} onClick={e => handleClickConfirm(props)}>
+
+                    Confirmar
                 </Button>
+
                 <Button variant="light" className={`end ${display[1]}`} onClick={() => {
                     setDisplay({ 1: 'oculto', 2: '' });
                 }}>

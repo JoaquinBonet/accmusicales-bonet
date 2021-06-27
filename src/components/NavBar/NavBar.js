@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWidget } from './CartWidget.js';
 import { NavLink } from 'react-router-dom';
@@ -30,13 +29,8 @@ export const NavBar = () => {
 
                 </Nav>
                 <Form inline>
-
-                    <Link to="/cart/">
-                        <CartWidget></CartWidget>
-                    </Link>
-
+                    <CartWidget></CartWidget>
                 </Form>
-
             </Navbar.Collapse>
         </Navbar>
     );

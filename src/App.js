@@ -7,6 +7,7 @@ import { ItemDetailContainer } from './screens/ItemDetailContainer/ItemDetailCon
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { NotFound } from './screens/NotFound/NotFound';
 import { CartComponentContext } from './context/CartContext'
+import { Cart } from './screens/Cart/Cart';
 
 
 
@@ -33,7 +34,7 @@ function App() {
             <NotFound />
           </Route>
           <Route path='/cart/'>
-            <NotFound />
+            <Cart />
           </Route>
         </Switch>
 

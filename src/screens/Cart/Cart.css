@@ -1,0 +1,17 @@
+.noItems {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 3em;
+    display:inline-block;
+}
+
+.iContainer{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.btns{
+    display:inline-block;
+}
