@@ -11,6 +11,7 @@ export const Item = ({ titulo, precio, img, id }) => {
     const routeClick = (path) => {
         history.push(path);
     }
+ 
 
     return <Card>
         <Link to={`/item/${id}`}>

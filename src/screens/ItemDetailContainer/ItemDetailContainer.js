@@ -4,17 +4,40 @@ import { ItemDetail } from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 import { itemsPromise } from '../../services/items'
 import { useParams } from 'react-router-dom'
+import { dataBase } from '../../firebase/firebase'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
 
 export const ItemDetailContainer = (props) => {
     const { id } = useParams();
-    const [data, setData] = React.useState([]);
-    React.useEffect(() => { itemsPromise.then(setData) }, []);
-    const itemFiltrado = data.find((item) => {return item.id === Number(id)})
-    return <Container >
-        <ItemDetail {...itemFiltrado}></ItemDetail>
+    const [item, setItem] = React.useState([]);
+    const [loading, setLoading] = React.useState(false);
 
+    React.useEffect(() => {
+        setLoading(true);
+        const itemCollection = dataBase.collection("productos");
+
+        const item = itemCollection.doc(id);
+        item.get().then((doc) => {
+            if (!doc.exists) {
+                console.log("Item doesn't exist!");
+                return;
+            }
+
+            setItem({ id: doc.id, ...doc.data() });
+        }).catch((error) => {
+            console.log("Error searching items", error)
+        }).finally(() => { setLoading(false) });
+    }, [])
+
+
+    //const itemFiltrado = item.find((item) => {return item.id === Number(id)})
+    return <Container >
+
+        {loading ? <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+        </Spinner> : <ItemDetail {...item}></ItemDetail>}
     </Container>
 }
