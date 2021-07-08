@@ -12,7 +12,7 @@ export const ModalMessage = ({show, setShow}) => {
     return (
         <>
     
-            <Modal show={show} onHide={handleClose} variant="dark">
+            <Modal show={show} onHide={handleClose} variant="dark" backdrop="static">
                 <Modal.Header closeButton>
                     <Modal.Title>Se agregó el producto al carrito</Modal.Title>
                 </Modal.Header>

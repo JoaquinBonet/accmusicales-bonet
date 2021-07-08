@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.css'
 import { ItemList } from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-//import { itemsPromise } from '../../services/items'
 import { dataBase } from '../../firebase/firebase'
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -20,8 +19,6 @@ export const ItemListContainer = (props) => {
         const itemCollection = dataBase.collection("productos");
 
         const itemCategory = itemCollection.where('cat', '==', `${catID}`);
-
-
 
         ( catID ? itemCategory : itemCollection).get().then((querySnapshot) => {
             if (querySnapshot.size === 0) {

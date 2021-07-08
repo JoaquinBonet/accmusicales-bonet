@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container'
 import { ItemDetail } from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
-import { itemsPromise } from '../../services/items'
+
 import { useParams } from 'react-router-dom'
 import { dataBase } from '../../firebase/firebase'
 import Spinner from 'react-bootstrap/Spinner'
@@ -30,10 +30,10 @@ export const ItemDetailContainer = (props) => {
         }).catch((error) => {
             console.log("Error searching items", error)
         }).finally(() => { setLoading(false) });
-    }, [])
+    }, [id])
 
 
-    //const itemFiltrado = item.find((item) => {return item.id === Number(id)})
+ 
     return <Container >
 
         {loading ? <Spinner animation="border" role="status">
