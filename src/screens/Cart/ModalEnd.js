@@ -25,13 +25,12 @@ export const ModalEnd = (props) => {
     >
       
         <Modal.Body>
-            <h4>Orden realizada</h4>
-            <p>
-                Toca el botón para volver a la navegación
-            </p>
+            <h4>Orden realizada </h4>
+            <p>Su código de orden es <b>{ props.orderId || 'cargando...' }</b> </p>
+           
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={() => handleClick("/")} variant="dark">Inicio</Button>
+            <Button onClick={() => handleClick("/")} variant="dark">Volver al inicio</Button>
         </Modal.Footer>
     </Modal>
 }

@@ -19,6 +19,7 @@ export const Cart = () => {
     const [user, setUser] = React.useState({ name: '', phone: '', email: '' });
 
     const [modalShow, setModalShow] = React.useState(false);
+    const [orderId, setOrderId] = React.useState('');
 
     const history = useHistory();
 
@@ -77,8 +78,12 @@ export const Cart = () => {
 
             if (outOfStock.length === 0) {
                 orders.add(newOrder);
-                console.log(newOrder);
-                batch.commit().then(() => { });
+                batch.commit().then(() => {
+                    orders
+                        .orderBy('date', "desc").limit(1)
+                        .get().then(querySnapshot => setOrderId(querySnapshot.docs[0].id));
+                });
+
             }
 
         });
@@ -91,20 +96,22 @@ export const Cart = () => {
             <h1 className="noItems"> No hay productos en el carrito! </h1>
             <Button variant="dark" onClick={e => routeLink("/")}>Volver</Button>
         </div> : <Container fluid className="iContainer">
-            <ModalEnd show={modalShow}></ModalEnd>
+            <ModalEnd show={modalShow} orderId={orderId}></ModalEnd>
             <Row>
                 <Col sm={6}>
                     <Table responsive striped bordered hover variant="dark">
                         <thead>
-                            <th>Quitar</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
+                            <tr>
+                                <th>Quitar</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {cart.map((item, i) => {
                                 return <tr key={i} >
-                                    <td sm><Button variant="outline-danger" onClick={() => removeItem(item.item.id)}><DashCircle /></Button></td>
+                                    <td><Button variant="outline-danger" onClick={() => removeItem(item.item.id)}><DashCircle /></Button></td>
                                     <td>{item.item.titulo}</td>
                                     <td>{item.quantity}</td>
                                     <td>${Number(item.item.precio.replace(/[^0-9-,]+/g, "")) * item.quantity}</td>
