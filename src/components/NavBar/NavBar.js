@@ -5,26 +5,30 @@ import Form from 'react-bootstrap/Form';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWidget } from './CartWidget.js';
 import { NavLink } from 'react-router-dom';
+import './NavBar.css';
 
 
 
 
 export const NavBar = () => {
+
+    const [expanded, setExpanded] = React.useState(false);
+
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
             <Navbar.Brand as={NavLink} to="/" href="#home" className="font-link">La cueva del guitarrista</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => { setExpanded(expanded ? false : "expanded")}}/>
+            <Navbar.Collapse id="navbar-dark-example" menuVariant="dark">
                 <Nav className="mr-auto">
-                    <Nav.Link as={NavLink} to="/category/cables">Cables</Nav.Link>
-                    <Nav.Link as={NavLink} to="/category/pedales">Pedales</Nav.Link>
-                    <Nav.Link as={NavLink} to="/category/multifx">Multi-fx</Nav.Link>
-                    <NavDropdown title="Otros accesorios" id="basic-nav-dropdown">
-                        <NavDropdown.Item as={NavLink} to="/category/puas" variant="dark" >Púas</NavDropdown.Item>
-                        <NavDropdown.Item as={NavLink} to="/category/mics" >Mics</NavDropdown.Item>
-                        <NavDropdown.Item as={NavLink} to="/category/correas" >Correas</NavDropdown.Item>
+                    <Nav.Link as={NavLink} to="/category/cables" onClick={() => setExpanded(false)}>Cables</Nav.Link>
+                    <Nav.Link as={NavLink} to="/category/pedales" onClick={() => setExpanded(false)}>Pedales</Nav.Link>
+                    <Nav.Link as={NavLink} to="/category/multifx" onClick={() => setExpanded(false)}>Multi-fx</Nav.Link>
+                    <NavDropdown title="Otros accesorios" id="nav-dropdown-dark-example" menuVariant="dark">
+                        <NavDropdown.Item as={NavLink} to="/category/puas" onClick={() => setExpanded(false)}>Púas</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/category/mics" onClick={() => setExpanded(false)}>Mics</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/category/correas"onClick={() => setExpanded(false)} >Correas</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item as={NavLink} to="/category/otros">Otros</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/category/otros" onClick={() => setExpanded(false)}>Otros</NavDropdown.Item>
                     </NavDropdown>
 
                 </Nav>
