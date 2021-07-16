@@ -6,9 +6,9 @@
 
 .iContainer{
    
-
     padding:1em;
-    margin:0;
+    margin-top:2%;
+    margin-bottom:3%;
 }
 
 .emptyContainer{
@@ -17,7 +17,8 @@
     align-items: center;
     justify-content: center;
     padding:2em;
-    margin: 1em;
+    margin-top: 5%;
+    margin-bottom: 12.5%
 }
 
 .btns{

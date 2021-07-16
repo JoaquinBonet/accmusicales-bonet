@@ -34,7 +34,7 @@ export const ItemListContainer = (props) => {
     }, [catID])
 
     return <div className="container" >
-        {loading ? <Spinner animation="border" role="status">
+        {loading ? <Spinner animation="border" role="status" style={{marginTop: 50, marginBottom:800, marginLeft: 500}}>
             <span className="sr-only">Loading...</span>
         </Spinner> : <ItemList data={data} > </ItemList>}
     </div>

@@ -33,11 +33,10 @@ export const ItemDetailContainer = (props) => {
     }, [id])
 
 
- 
-    return <Container >
 
-        {loading ? <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-        </Spinner> : <ItemDetail {...item}></ItemDetail>}
+    return <Container id="itemContainer">
+
+        {loading ? <Spinner animation="border" role="status" style={{marginTop: 50, marginBottom:800, marginLeft: 500}}/>
+            : <ItemDetail {...item}></ItemDetail>}
     </Container>
 }

@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { NotFound } from './screens/NotFound/NotFound';
 import { CartComponentContext } from './context/CartContext'
 import { Cart } from './screens/Cart/Cart';
+import {Footer } from './components/Footer/Footer'
 
 
 
@@ -37,7 +38,7 @@ function App() {
             <Cart />
           </Route>
         </Switch>
-
+        <Footer />
       </BrowserRouter>
     </CartComponentContext>
   </>
