@@ -33,23 +33,23 @@ export const Footer = () => {
 
     React.useEffect(() => window.addEventListener("scroll", showButton() ) )
 
-    return <footer class="site-footer">
+    return <footer className="site-footer">
 
-        <div class="container">
+        <div className="container">
 
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
+            <div className="row">
+                <div className="col-sm-12 col-md-6">
                     <h6>Contacto</h6>
-                    <ul class="footer-links">
+                    <ul className="footer-links">
                         <li><EnvelopeFill /> <a href="mailto:lacuevadelguitarrista@gmail.com">lacuevadelguitarrista@gmail.com</a></li>
                         <li><TelephoneFill /><span>+54 011 6168 2523</span></li>
 
                     </ul>
                 </div>
 
-                <div class="col-xs-6 col-md-3">
+                <div className="col-xs-6 col-md-3">
 
-                    <ul class="footer-links">
+                    <ul className="footer-links">
                         <li><a href="https://www.google.com" className="icon">
                             <Instagram /> Instagram
                         </a></li>
@@ -67,10 +67,10 @@ export const Footer = () => {
             <button onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} style={show ? {display: 'block' } : {display: 'none'}} id="myBtn" title="Go to top"><ArrowUp /></button>
             <hr />
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">La Cueva del Guitarrista &copy; 2021
+        <div className="container">
+            <div className="row">
+                <div className="col-md-8 col-sm-6 col-xs-12">
+                    <p className="copyright-text">La Cueva del Guitarrista &copy; 2021
                     </p>
                 </div>
             </div>
