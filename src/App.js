@@ -37,6 +37,9 @@ function App() {
           <Route path='/cart/'>
             <Cart />
           </Route>
+          <Route path='/category/cart'>
+            <NotFound />
+          </Route>
         </Switch>
         <Footer />
       </BrowserRouter>
