@@ -28,14 +28,9 @@ export const ItemDetail = (props) => {
     const handleClickConfirm = (props) => {
         addItem({ item: props, quantity: quantity });
         handleShow();
-
     }
 
     return <>
-
-
-
-
         <ModalMessage show={show} setShow={setShow}/>
         <Row>
             <Col sm={12} ><h1 className="title">{props.titulo}</h1></Col>

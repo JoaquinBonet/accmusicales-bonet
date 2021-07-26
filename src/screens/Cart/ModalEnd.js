@@ -6,13 +6,13 @@ import { useCartContext } from '../../context/CartContext';
 
 export const ModalEnd = (props) => {
 
-    const { setCart } = useCartContext();
+    const { clear } = useCartContext();
 
     const history = useHistory();
 
     const handleClick = (path) => {
         history.push(path);
-        setCart([]);
+        clear();
 
     }
 

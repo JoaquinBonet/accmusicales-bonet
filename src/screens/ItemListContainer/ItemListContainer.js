@@ -8,10 +8,9 @@ import Spinner from 'react-bootstrap/Spinner'
 
 
 export const ItemListContainer = (props) => {
+
     const [data, setData] = React.useState([]);
-
     const [loading, setLoading] = React.useState()
-
     const { catID } = useParams()
 
     React.useEffect(() => {
@@ -22,21 +21,21 @@ export const ItemListContainer = (props) => {
 
         ( catID ? itemCategory : itemCollection).get().then((querySnapshot) => {
             if (querySnapshot.size === 0) {
-                console.log("No results!");
+                alert("No results!");
             }
 
             setData(querySnapshot.docs.map(doc => { return { id: doc.id, ...doc.data() } }));
 
 
         }).catch((error) => {
-            console.log("error searching items", error)
+            alert("error searching items", error)
         }).finally(() => { setLoading(false) });
     }, [catID])
 
     return <div className="container" >
         {loading ? <Spinner animation="border" role="status" style={{marginTop: 50, marginBottom:800, marginLeft: 500}}>
             <span className="sr-only">Loading...</span>
-        </Spinner> : <ItemList data={data} > </ItemList>}
+        </Spinner> : <ItemList data={data} />}
     </div>
 
 }

@@ -14,7 +14,7 @@ import { validateForm } from './validations'
 
 export const Cart = () => {
 
-    const { cart, setCart } = useCartContext();
+    const { cart,  clear, removeItem, totalPrice } = useCartContext();
 
     const [user, setUser] = React.useState({ name: '', phone: '', email: '' });
 
@@ -27,27 +27,6 @@ export const Cart = () => {
         history.push(path);
     }
 
-    const clear = () => {
-        setCart([]);
-    }
-
-    const removeItem = (id) => {
-        const removableItem = cart.find(item => { return item.item.id === id });
-        const index = cart.indexOf(removableItem);
-        cart.splice(index, 1);
-        setCart([...cart]);
-
-    }
-
-    const totalPrice = (cart) => {
-        let count = 0;
-        for (let i = 0; i < cart.length; i++) {
-            let currency = cart[i].item.precio;
-            let priceNumber = Number(currency.replace(/[^0-9-,]+/g, "")) * cart[i].quantity;
-            count += priceNumber;
-        };
-        return count;
-    }
 
     const handleClickContinue = () => {
 

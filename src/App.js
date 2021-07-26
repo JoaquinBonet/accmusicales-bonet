@@ -8,14 +8,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { NotFound } from './screens/NotFound/NotFound';
 import { CartComponentContext } from './context/CartContext'
 import { Cart } from './screens/Cart/Cart';
-import {Footer } from './components/Footer/Footer'
+import { Footer } from './components/Footer/Footer'
 
 
 
 
 function App() {
-  return <>
-    <CartComponentContext>
+  return <CartComponentContext>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -37,14 +36,12 @@ function App() {
           <Route path='/cart/'>
             <Cart />
           </Route>
-          <Route path='/category/cart'>
-            <NotFound />
-          </Route>
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </BrowserRouter>
     </CartComponentContext>
-  </>
+  
 }
 
 export default App;

@@ -11,6 +11,7 @@ export const CartComponentContext = props => {
         return cart.find(item => { return item.item.id === id });
     }
 
+
     const addItem = (item) => {
 
         return isInCart(item.item.id) ? updateRepeatedItem(item) : setCart([...cart, item]);
@@ -27,7 +28,7 @@ export const CartComponentContext = props => {
         });
 
         return setCart(updatedItem);
-        
+
     }
 
 
@@ -36,8 +37,33 @@ export const CartComponentContext = props => {
         setCart([]);
     }
 
+    const totalPrice = (cart) => {
+        let count = 0;
+        for (let i = 0; i < cart.length; i++) {
+            let currency = cart[i].item.precio;
+            let priceNumber = Number(currency.replace(/[^0-9-,]+/g, "")) * cart[i].quantity;
+            count += priceNumber;
+        };
+        return count;
+    }
 
-    return <CartContext.Provider value={{ cart, setCart, addItem, clear }}>
+    const totalItems = (cart) => {
+        let count = 0;
+
+        for (let i = 0; i < cart.length; i++) {
+            count += cart[i].quantity;
+        };
+        return count;
+    };
+
+    const removeItem = (id) => {
+        const removableItem = cart.find(item => { return  id === item.item.id });
+        return setCart(cart.filter( item => { return item !== removableItem}));
+
+    }
+
+
+    return <CartContext.Provider value={{ cart, removeItem, addItem, clear, isInCart, totalItems, totalPrice }}>
         {props.children}
     </CartContext.Provider>
 }

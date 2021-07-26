@@ -22,13 +22,13 @@ export const ItemDetailContainer = (props) => {
         const item = itemCollection.doc(id);
         item.get().then((doc) => {
             if (!doc.exists) {
-                console.log("Item doesn't exist!");
+                alert("Item doesn't exist!");
                 return;
             }
 
             setItem({ id: doc.id, ...doc.data() });
         }).catch((error) => {
-            console.log("Error searching items", error)
+            alert("Error searching items", error);
         }).finally(() => { setLoading(false) });
     }, [id])
 

@@ -25,14 +25,6 @@ export const Footer = () => {
     }, [scrollTop])
 
 
-    const showButton = () => {
-        if (window.scrollY > 3500 ) {
-             setShow(true)
-        }
-    }
-
-    React.useEffect(() => window.addEventListener("scroll", showButton() ) )
-
     return <footer className="site-footer">
 
         <div className="container">
@@ -64,7 +56,7 @@ export const Footer = () => {
                 </div>
 
             </div>
-            <button onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} style={show ? {display: 'block' } : {display: 'none'}} id="myBtn" title="Go to top"><ArrowUp /></button>
+            {show ? <button onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} id="myBtn" title="Go to top"><ArrowUp /></button> : null}
             <hr />
         </div>
         <div className="container">
